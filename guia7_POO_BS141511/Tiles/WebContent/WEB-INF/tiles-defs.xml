@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+     "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<!--
+ This is a blank Tiles definition file with a commented example.
+-->
+
+
+
+ <tiles-definitions>
+	 <definition name="principalmsj" path="/WEB-INF/plantillas/template.jsp">
+	 
+	 	<put name="menu" value="/WEB-INF/plantillas/menu.jsp"/>
+	 	<put name="user-menu" value="/WEB-INF/plantillas/user-menu.jsp"/>
+	 	<put name="body" value="/WEB-INF/plantillas/body.jsp"/>
+	 </definition>
+	 
+	 
+	
+	 <definition name="aspirantes" extends="principalmsj">
+	 <put name="menu" value="/WEB-INF/plantillas/menu.jsp"/>
+	 	<put name="user-menu" value="/WEB-INF/plantillas/user-menu.jsp"/>
+		<put name="body" value="/vistas/aspirantes.jsp"/>
+	 </definition>
+	 
+	 <definition name="escuelas" extends="principalmsj">
+	  <put name="menu" value="/WEB-INF/plantillas/menu.jsp"/>
+	 	<put name="user-menu" value="/WEB-INF/plantillas/user-menu.jsp"/>
+	 	<put name="body" value="/vistas/escuelas.jsp"/>
+	 </definition>
+	 
+	 <definition name="facultades" extends="principalmsj">
+	 	 <put name="menu" value="/WEB-INF/plantillas/menu.jsp"/>
+	 	<put name="user-menu" value="/WEB-INF/plantillas/user-menu.jsp"/>
+		<put name="body" value="/vistas/facultad.jsp"/>
+	 </definition>
+	 
+	 <definition name="instituciones" extends="principalmsj">
+	  <put name="menu" value="/WEB-INF/plantillas/menu.jsp"/>
+	 	<put name="user-menu" value="/WEB-INF/plantillas/user-menu.jsp"/>
+	 	<put name="body" value="/vistas/instituciones.jsp"/>
+	 </definition>
+	 
+	 
+	 <definition name="usuarios" extends="principalmsj">
+	  <put name="menu" value="/WEB-INF/plantillas/menu.jsp"/>
+	 	<put name="user-menu" value="/WEB-INF/plantillas/user-menu.jsp"/>
+		<put name="body" value="/vistas/usuarios.jsp"/>
+	 </definition>
+	 
+	 <definition name="visitas" extends="principalmsj">
+	 	 <put name="menu" value="/WEB-INF/plantillas/menu.jsp"/>
+	 	<put name="user-menu" value="/WEB-INF/plantillas/user-menu.jsp"/>
+	 	<put name="body" value="/vistas/visitas.jsp"/>
+	 </definition>
+	 
+
+ </tiles-definitions>
