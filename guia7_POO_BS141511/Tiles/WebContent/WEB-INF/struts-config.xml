@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+<form-beans>
+<form-bean name="ValidacionForm" type="sv.edu.udb.form.ValidacionForm"/>
+<form-bean name="InstitucionesForm" type="sv.edu.udb.form.InstitucionesForm"/>
+<form-bean name="SubirForm" type="sv.edu.udb.form.SubirForm"/>
+<form-bean name="EtlForm" type="sv.edu.udb.form.EtlForm"/>
+  </form-beans>
+ 
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+<forward name="aspirante" path="/aspirantes.do"/>
+<forward name="escuela" path="/escuelas.do"/>
+<forward name="facultad" path="/facultades.do"/>
+<forward name="institucion" path="/vistas/instituciones.do"/>
+<forward name="logins" path="/vistas/login.jsp"/>
+<forward name="usuario" path="/usuarios.do"/>
+<forward name="visita" path="/visitas.do"/>
+<forward name="login" path="/vistas/login.do"/>
+<forward name="etl" path="/ETLExcel.jsp"/>
+
+    </global-forwards>
+
+<action-mappings>
+<action path="/aspirantes" forward="aspirantes"/>
+<action path="/escuelas" forward="escuelas"/>
+<action path="/facultades" forward="facultades"/>
+<action path="/instituciones" forward="instituciones"/>
+<action path="/usuarios" forward="usuarios"/>
+<action path="/visitas" forward="visitas"/>
+<action name="ValidacionForm"
+ path="/validar" input="/login.jsp" parameter="method" scope="request"
+ type="sv.edu.udb.action.RegistrarAction">
+<forward name="exito" path="/vistas/login.jsp"/>
+</action>
+<action name="InstitucionesForm"
+ path="/registra" input="/vistas/instituciones.jsp" parameter="method" scope="request"
+ type="sv.edu.udb.action.InstitucionesAction">
+<forward name="exito" path="/vistas/instituciones.jsp"/>
+</action>
+<action name="SubirForm"
+path="/subirarchivos" parameter="method" scope="request"
+type="sv.edu.udb.action.RegistrarAction" input="/IngresoDatos.jsp">
+<forward name="exito" path="/ArchivosExito.jsp"/>
+</action>
+<action name="EtlForm"
+path="/cargaretl" parameter="method" scope="request"
+type="sv.edu.udb.action.EtlAction" input="etl">
+<forward name="exito" path="/ArchivosExito.jsp"/>
+</action>
+</action-mappings>
+   
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+    
+    <message-resources parameter="sv.edu.udb.resources.AplicationResource"/>
+    
+    
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+    	<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+    	<set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+     <!-- ================== Validator plugin ========================= -->
+
+ <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+ <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+ </plug-in>
+</struts-config>
